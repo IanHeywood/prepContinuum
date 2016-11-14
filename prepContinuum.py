@@ -1,7 +1,7 @@
 # -----------------------------------------------------------
 # Initial processing of ASKAP data ahead of continuum selfcal / imaging.
 # 
-# Usage: python prepContinuum.py CALSB SCISB NBEAMS
+# Usage: python prepContinuum.py CALSB SCISB NBEAMS NCHANNELS
 #
 # This is a self-contained script._
 #
@@ -16,7 +16,7 @@
 # This will only run on Galaxy.
 # 
 # ian.heywood@csiro.au
-# last mod 30.09.16
+# last mod 15.11.16
 # -----------------------------------------------------------
 
 
@@ -34,14 +34,16 @@ import glob
 calsb = sys.argv[1]
 scisb = sys.argv[2]
 nbeams = int(sys.argv[3])
+nchans = int(sys.argv[4])
 
 sbpath = '/scratch2/askap/askapops/askap-scheduling-blocks/'
 slurmpath = 'slurmfiles/'
 
 print ''
-print 'Calibration SB:    ',calsb
-print 'Science target SB: ',scisb
-print 'Number of beams:   ',nbeams
+print 'Calibration SB:     ',calsb
+print 'Science target SB:  ',scisb
+print 'Number of beams:    ',nbeams
+print 'Number of channels: ',nchannels
 
 if sbpath[-1] != '/':
 	sbpath += '/'
@@ -91,7 +93,7 @@ def write_mssplit_config(configfile,beam,inms,opms,cal):
 		f.writelines(['scans = ['+str(beam)+']\n'])
 	#          'fieldnames = [B1934-638_beam'+str(beam)+']'        
 	f.writelines(['beams = ['+str(beam)+']\n',
-		'channel = 1-2592\n',
+		'channel = 1-'+str(nchans)+'\n',
 		'width = 1\n'])
 	f.close()
 	return configfile
