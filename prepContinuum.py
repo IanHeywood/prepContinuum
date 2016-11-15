@@ -185,8 +185,8 @@ def write_CASA_process_sci(casascript,msname):
 		'applycal(vis=soloms,gaintable=caltab,interp=["nearest"])\n',
 		'for i in range(0,len(flds)):\n',
 		'    opms = soloms.replace("_sci","_"+flds[i]+"_wtspec")\n',
-		'    mstransform(vis=soloms,outputvis=opms,field=str(i),datacolumn="corrected",chanaverage=True,chanbin=27,usewtspectrum=True,realmodelcol=True)\n'])
-	#	'    os.system("mv "+opms+" ../")\n'])
+		'    mstransform(vis=soloms,outputvis=opms,field=str(i),datacolumn="corrected",chanaverage=True,chanbin=27,usewtspectrum=True,realmodelcol=True)\n',
+		'    os.system("mv "+opms+" ../")\n'])
 	f.close()
 	return casascript
 
