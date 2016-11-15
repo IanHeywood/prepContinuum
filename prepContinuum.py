@@ -43,7 +43,7 @@ print ''
 print 'Calibration SB:     ',calsb
 print 'Science target SB:  ',scisb
 print 'Number of beams:    ',nbeams
-print 'Number of channels: ',nchannels
+print 'Number of channels: ',nchans
 
 if sbpath[-1] != '/':
 	sbpath += '/'
