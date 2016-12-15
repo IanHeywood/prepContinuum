@@ -104,7 +104,7 @@ def write_mssplit_slurm(slurmfile,config):
 	f.writelines(['#!/bin/bash -l\n',
 		'#SBATCH --partition=workq\n',
 		'#SBATCH --clusters=galaxy\n',
-		'#SBATCH --time=02:00:00\n',
+		'#SBATCH --time=12:00:00\n',
 		'#SBATCH --ntasks=1\n',
 		'#SBATCH --ntasks-per-node=1\n',
 		'#SBATCH --job-name=mssplit\n',
@@ -270,7 +270,7 @@ for beam in range(0,nbeams):
 	cal_casa1 = slurmpath+'casa_cal_1_beam'+str(beam)+'.py'
 	cal_slurm1 = slurmpath+'cal_1_beam'+str(beam)+'.slurm'
 	write_CASA_process_cal(cal_casa1,opms_cal)
-	write_CASA_slurm(cal_slurm1,cal_casa1,'proc_cal_'+str(calsb),'04:00:00',opms_cal)
+	write_CASA_slurm(cal_slurm1,cal_casa1,'proc_cal_'+str(calsb),'12:00:00',opms_cal)
 	#
 	# DEPENDENCIES: cal_split_id
 	#
@@ -285,7 +285,7 @@ for beam in range(0,nbeams):
 	sci_casa2 = slurmpath+'casa_sci_2_beam'+str(beam)+'.py'
 	sci_slurm2 = slurmpath+'sci_2_beam'+str(beam)+'.slurm'
 	write_CASA_process_sci(sci_casa2,opms_sci)
-	write_CASA_slurm(sci_slurm2,sci_casa2,'cal_sci_'+str(scisb),'06:00:00',opms_sci)
+	write_CASA_slurm(sci_slurm2,sci_casa2,'cal_sci_'+str(scisb),'12:00:00',opms_sci)
 	#
 	# DEPENDENCIES: sci_casa1_id:cal_casa1_id
 	#
