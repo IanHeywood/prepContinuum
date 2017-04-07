@@ -174,7 +174,7 @@ def write_CASA_process_sci(casascript,msname):
 		'myms = "../'+msname+'"\n',
 		'soloms = myms.split("/")[-1]\n',
 		'beam = soloms.split("_")[3]\n',
-		'caltab = glob.glob("../cal_*"+beam+"*.B")[0]\n',
+		'caltab = glob.glob("../cal_*"+beam+"_*.B")[0]\n',
 		'os.system("ln -s "+myms+" .")\n',
 		'flagdata(vis=soloms,mode="manual",autocorr=True)\n',
 		'flagdata(vis=soloms,mode="rflag",datacolumn="DATA")\n',
