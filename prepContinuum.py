@@ -16,7 +16,7 @@
 # This will only run on Galaxy.
 # 
 # ian.heywood@csiro.au
-# last mod 15.11.16
+# last mod 07.04.17
 # -----------------------------------------------------------
 
 
