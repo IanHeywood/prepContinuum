@@ -3,9 +3,10 @@
 # 
 # Usage: python prepContinuum.py CALSB SCISB NBEAMS NCHANNELS
 #
-# This is a self-contained script._
+# This is a self-contained script.
 #
-# Feed it the SB numbers of the calibrator and science targets, and the number of beams.
+# Feed it the SB numbers of the calibrator and science targets, and the number of beams
+# and channels (use ASKAPsoft mslist to determine if unknown).
 # Source the submit_*.sh script and some time later it will have produced per-beam 
 # Measurement Sets that are bandpass calibrated, flagged, frequency averaged to 0.5 MHz
 # channels and have a WEIGHT_SPECTRUM column.
@@ -16,7 +17,7 @@
 # This will only run on Galaxy.
 # 
 # ian.heywood@csiro.au
-# last mod 07.04.17
+# last mod 15.04.17
 # -----------------------------------------------------------
 
 
